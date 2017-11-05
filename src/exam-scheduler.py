@@ -23,6 +23,7 @@ def read(classes, students):
 def main():
     classes = []
     students = []
+    color_index = [0] * 20
     read(classes, students)
     edges = [[0 for j in i] for i in classes]
 
@@ -32,6 +33,13 @@ def main():
                 if k in classes[j]:
                     edges[i][j] = 1
 
-    print(edges)
+    for i in range(len(edges)):
+        for j in range(i+ 1, len(edges)):
+            if edges[i][j] == 1:
+                while color_index[i] == color_index[j]:
+                    color_index[j] += 1
+
+    print(color_index)
+
     
 main()
