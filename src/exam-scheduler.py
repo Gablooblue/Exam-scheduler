@@ -23,22 +23,24 @@ def read(classes, students):
 def output(color_index, classes, students):
     f = open("../index.html", "w")
     f.write("<html>")
+    f.write("<h1>Exam schedules</h1>")
+    f.write("<link rel = 'stylesheet' href = 'styles.css'")
     f.write("<body>")
     f.write("<table>")
 
     f.write("<tr>")
     f.write("<th>Exam time</th>")
-    f.write("<th>Class</th>")
+    f.write("<th>Class/es</th>")
     f.write("</tr>")
     timestart = 7
     for i in range(max(color_index)):
         timeslot = []
         f.write("<tr>")
-        f.write("<td>" + str(timestart + i) + "-" + str(timestart+ 1 + i) + "</td>")
+        f.write("<td>" + str(timestart + i) + ":00-" + str(timestart+ 1 + i) + ":00</td>")
         for j in range(len(classes)):
             if color_index[j] == i:
-                timeslot.append(str(j))
-        same_time = ",".join(timeslot)
+                timeslot.append("COURSE" + str(j + 1))
+        same_time = ", ".join(timeslot)
         f.write("<td>" + same_time + "</td>")
         f.write("</tr>")
     f.write("</table>")
@@ -47,7 +49,6 @@ def output(color_index, classes, students):
 
 def main():
     classes = []
-    class_names = []
     students = []
     read(classes, students)
     color_index = [0] * len(classes)
