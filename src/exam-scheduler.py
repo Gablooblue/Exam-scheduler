@@ -20,12 +20,38 @@ def read(classes, students):
     for i in students_file.readlines():
         students.append(i.strip().split(","))
 
+def output(color_index, classes, students):
+    f = open("../index.html", "w")
+    f.write("<html>")
+    f.write("<body>")
+    f.write("<table>")
+
+    f.write("<tr>")
+    f.write("<th>Exam time</th>")
+    f.write("<th>Class</th>")
+    f.write("</tr>")
+    timestart = 7
+    for i in range(max(color_index)):
+        timeslot = []
+        f.write("<tr>")
+        f.write("<td>" + str(timestart + i) + "-" + str(timestart+ 1 + i) + "</td>")
+        for j in range(len(classes)):
+            if color_index[j] == i:
+                timeslot.append(str(j))
+        same_time = ",".join(timeslot)
+        f.write("<td>" + same_time + "</td>")
+        f.write("</tr>")
+    f.write("</table>")
+    f.write("</body>")
+    f.write("</html>")
+
 def main():
     classes = []
+    class_names = []
     students = []
-    color_index = [0] * 20
     read(classes, students)
-    edges = [[0 for j in i] for i in classes]
+    color_index = [0] * len(classes)
+    edges = [[0 for j in range(len(classes))] for i in range(len(classes))]
 
     for i in range(len(classes)):
         for j in range(i + 1, len(classes)):
@@ -39,7 +65,8 @@ def main():
                 while color_index[i] == color_index[j]:
                     color_index[j] += 1
 
-    print(color_index)
+    output(color_index, classes, students)
+
 
     
 main()
