@@ -92,6 +92,7 @@ def makeCourse(n, classes, students):
     f.write("</table>")
     f.write("</body>")
     f.write("</html>")
+    print("Created page for course " + str(n+1))
     
 def findName(n, students):
     for i in students:
@@ -120,13 +121,15 @@ def output(color_index, classes, students):
         for j in range(len(classes)):
             if color_index[j] == i:
                 timeslot.append("<a href = 'course" + str(j +1) + ".html'>COURSE" + str(j + 1) +"</a>")
-            makeCourse(j, classes, students)
         same_time = ", ".join(timeslot)
         f.write("<td>" + same_time + "</td>")
         f.write("</tr>")
     f.write("</table>")
     f.write("</body>")
     f.write("</html>")
+
+    for i in range(len(classes)):
+        makeCourse(i, classes, students)
     print("Successfully created index.html at current directory")
 
 
