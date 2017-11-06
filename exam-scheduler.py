@@ -22,6 +22,7 @@ def main():
 
     output(color_index, classes, students)
     style()
+    print("Open index.html to view schedule")
 
 def read(classes, students):
     try:
@@ -47,9 +48,10 @@ def read(classes, students):
             students.append(i.strip().split(","))
     except FileNotFoundError:
         return False 
+    return True
 
 def output(color_index, classes, students):
-    f = open("../index.html", "w")
+    f = open("index.html", "w")
     f.write("<html>")
     f.write("<h1>Exam schedules</h1>")
     f.write("<link rel = 'stylesheet' href = 'styles.css'")
@@ -74,9 +76,10 @@ def output(color_index, classes, students):
     f.write("</table>")
     f.write("</body>")
     f.write("</html>")
+    print("Successfully created index.html at current directory")
 
 def style():
-    f = open('../styles.css', 'w')
+    f = open('styles.css', 'w')
     f.write('html')
     f.write('{')
     f.write('font-family: "Trebuchet MS", "sans-serif";')
@@ -118,6 +121,7 @@ def style():
     f.write('padding: 15px;')
     f.write('}')
     f.close()
+    print("Successfully created styles.css at current directory")
 
 
 
