@@ -75,7 +75,7 @@ def read(classes, students):
 def makeCourse(n, classes, students):
     f = open("course" + str(n + 1) + ".html", "w")
     f.write("<html>")
-    f.write("<h1>Examinees</h1>")
+    f.write("<h1>Course " + str(n+ 1) + " Examinees</h1>")
     f.write("<link rel = 'stylesheet' href = 'styles.css'")
     f.write("<body>")
     f.write("<table>")
