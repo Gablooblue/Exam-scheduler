@@ -1,0 +1,40 @@
+html
+{
+    font-family: "Trebuchet MS", "sans-serif";
+}
+h1
+{
+    text-align: center;
+}
+body
+{
+    padding-top: 50px;
+}
+
+table
+{
+    width: 50%;
+    box-shadow: 4px 4px 5px #888888;
+}
+table, th, td
+{
+    border-bottom: 1px solid grey;
+    border-collapse: collapse;
+    margin: 0 auto;
+    
+}
+tr:nth-child(even)
+{
+    background-color: #F5F5F5;
+}
+
+th
+{
+    background-color:#07177E; 
+    color: white;
+}
+
+th, td
+{
+    padding: 15px;
+}
