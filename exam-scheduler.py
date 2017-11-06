@@ -127,9 +127,10 @@ def output(color_index, classes, students):
     f.write("</table>")
     f.write("</body>")
     f.write("</html>")
-
+    
     for i in range(len(classes)):
-        makeCourse(i, classes, students)
+        #Makes a page for each course
+        makeCourse(i, classes, students) 
     print("Successfully created index.html at current directory")
 
 
